@@ -1,0 +1,23 @@
+# 编译输出
+/out/
+/target/
+/build/
+*.class
+
+# IDE配置
+/.idea/
+/.vscode/
+*.iml
+
+# 依赖库
+/lib/
+
+# 日志
+*.log
+
+# 临时文件
+*.tmp
+
+# 配置文件中的敏感信息（如果有）
+# application.properties
+# application.yml

@@ -1,0 +1,9 @@
+add method has exception.
+exception name:NullPointerException
+exception reason:Cannot invoke "String.toString()" because "str" is null
+==========================
+div method has exception.
+exception name:ArithmeticException
+exception reason:/ by zero
+==========================
+this test cause 2 errors.
