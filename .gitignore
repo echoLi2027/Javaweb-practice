@@ -10,7 +10,7 @@
 *.iml
 
 # 依赖库
-/lib/
+/libs/
 
 # 日志
 *.log
@@ -19,5 +19,35 @@
 *.tmp
 
 # 配置文件中的敏感信息（如果有）
-# application.properties
+ *.properties
 # application.yml
+
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
