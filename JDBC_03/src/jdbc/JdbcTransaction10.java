@@ -3,7 +3,6 @@ package jdbc;
 import util.JDBCUtils;
 
 import java.sql.*;
-import java.util.Scanner;
 
 public class JdbcTransaction10 {
 
