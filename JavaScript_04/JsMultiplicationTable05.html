@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<script src="js/test01.js"></script>-->
+<style>
+    td{
+        border: 1px solid;
+    }
+</style>
+
+
+<script>
+
+    document.write("<table align='center'>");
+
+//     show multiplication table by for loop
+    for (var i = 1; i <= 9 ; i++) {
+        document.write("<tr>")
+        for (var j = 1; j <= i; j++) {
+            document.write("<td>"+i+"*"+j+"="+i*j+"</td>");
+        }
+        document.write("</tr>");
+    }
+
+    document.write("</table>");
+
+
+</script>
+
+
+<input type="text">
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<img id = "off" src="img/off.gif">
+<br>
+<img id = "off1" src="img/off.gif", onclick="fun1();">
+
+<script>
+
+    var off = document.getElementById("off");
+
+    off.onclick = function (){
+        off.src = "img/on.gif";
+        alert("-_-''");
+    }
+
+    var off1 = document.getElementById("off1");
+
+    var flag = false;
+
+    function fun1() {
+
+        if (!flag){
+            off1.src = "img/on.gif";
+            flag = true;
+        }else{
+            off1.src = "img/off.gif";
+            flag = false;
+        }
+
+    }
+
+
+
+</script>
+
+
+</body>
+</html>

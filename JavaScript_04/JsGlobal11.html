@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<script src="js/test01.js"></script>-->
+
+<script>
+
+    var str = "http://www.google.com?wd=测试";
+    var encode = encodeURI(str);
+    document.write(encode+"<br>");
+    var s = decodeURI(encode);
+    document.write(s+"<br>");
+
+
+    var encode1 = encodeURIComponent(str);
+    document.write(encode1+"<br>");
+    var s1 = decodeURIComponent(encode1);
+    document.write(s1+"<br>");
+
+    var strk = "a234nni";
+    var number = parseInt(strk);
+    document.write(strk+"<br>");
+    document.write(number+"<br>");
+
+    var strk1 = "dsf234dfbdf34bf";
+    var number1 = parseInt(strk1);
+    document.write(strk1+"<br>");
+    document.write(number1+"<br>");
+
+
+    var jscode = "alert('hello world')";
+    eval(jscode);
+
+</script>
+
+
+<input type="text">
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<script src="js/test01.js"></script>-->
+
+<script>
+
+    var arr1 = new Array(1,2,3);
+    // define the length of array, not mean the first element of arr2 is 5.
+    var arr2 = new Array(5);
+    var arr3 = [1,2,3,4,5];
+
+    document.write(arr1+"<br>");
+    document.write(arr2+"<br>");
+    document.write(arr3+"<br>");
+
+    // but the length of array can change easily, as well as the type of the array.
+    arr2[10] = "abd";
+    document.write(arr2+"<br>");
+
+//     join method insert symbols to separate 2 elements
+    document.write(arr3.join("--")+"<br>");
+
+//     add element
+    arr3.push(6);
+    document.write(arr3+"<br>");
+
+
+
+</script>
+
+
+<input type="text">
+
+</body>
+</html>

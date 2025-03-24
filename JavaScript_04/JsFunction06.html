@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<script src="js/test01.js"></script>-->
+
+<script>
+
+<!--    2 ways to define a function-->
+    var fun = function (a, b) {
+        alert(a+b);
+    }
+
+    fun(3,4);
+    alert("variable number of function fun:"+fun.length);
+
+    function fun1() {
+        alert("hello world.");
+    }
+
+    fun1();
+
+    function summation() {
+        var sum = 0;
+        for (var i = 0; i < arguments.length; i++) {
+            sum += arguments[i];
+        }
+        return sum;
+    }
+
+    var res = summation(123,4,5,6,7,85,665,6);
+
+    alert(res);
+
+
+</script>
+
+
+<input type="text">
+
+</body>
+</html>
