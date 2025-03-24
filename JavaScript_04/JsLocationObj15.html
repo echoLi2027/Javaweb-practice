@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        p{
+            text-align: center;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<!--<script src="js/test01.js"></script>-->
+
+<input id="reload" type="button" value="reload">
+<input id="go" type="button" value="goGoogle"><br>
+
+<p>
+    after <span id="time">5</span> second, redirect to google...
+</p>
+
+
+<script>
+
+    var reload = document.getElementById("reload");
+    var go = document.getElementById("go");
+
+    reload.onclick = function () {
+        location.reload();
+    }
+
+    var href = location.href;
+    alert(href);
+    go.onclick = function () {
+        location.href = "https://ww.google.com";
+    }
+
+
+    var time = document.getElementById("time");
+    var second = 5;
+    function func() {
+        if (second===0){
+            location.href = "https://ww.google.com";
+        }else{
+            second--;
+            time.innerHTML = second+"";
+        }
+    }
+
+    setInterval("func();",1000);
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<script>
+
+window.onload = function () {
+//     1.lose focus
+    document.getElementById("username").onblur = function () {
+        document.write("lose focus..."+"<br>");
+    }
+
+//     2.bind mouse over event
+    document.getElementById("username").onmouseover = function () {
+        document.write("mouse is on username area..."+"<br>");
+    }
+
+//     3.bind mouse click event
+    document.getElementById("username").onmousedown = function (event) {
+        alert("it's been clicked...");
+        document.write("it's no."+event.button+" been clicked."+"<br>");
+    }
+
+//     4.content change
+    document.getElementById("city").onchange = function () {
+        alert("changed...");
+    }
+
+//     5.submit
+    document.getElementById("form").onsubmit = function () {
+        var flag = true;
+
+        return flag;
+    }
+
+    function checkForm() {
+        return true;
+    }
+}
+
+
+</script>
+
+
+
+<form action="#" id="form" onclick="return checkForm();">
+    <input name="username" id="username">
+
+    <select id="city">
+        <option>please choose</option>
+        <option>Beijing</option>
+        <option>Berlin</option>
+        <option>London</option>
+    </select>
+
+    <input type="submit" value="submit">
+</form>
+
+
+</body>
+</html>

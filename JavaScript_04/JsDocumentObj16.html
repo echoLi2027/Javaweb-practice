@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<script src="js/test01.js"></script>-->
+<div id="div1">div1</div>
+<div id="div2">div2</div>
+<div id="div3">div3</div>
+<div id="div4">div4</div>
+
+<div class="cls1">div5</div>
+<div class="cls1">div6</div>
+
+<input type="text" name="username">
+
+<script>
+
+
+<!--    2. according to element name get elements, return an element array-->
+    var divs = document.getElementsByTagName("div");
+    document.write(divs.length+"<br>");
+
+//     3.according to className get element objs, return an element array
+    var cls = document.getElementsByClassName("cls1");
+    document.write(cls.length+"<br>");
+
+//     4.according to name property to get element objs, return an element array
+    var ele_username = document.getElementsByName("username");
+    alert(ele_username);
+
+
+
+
+
+
+</script>
+
+
+<input type="text">
+
+</body>
+</html>

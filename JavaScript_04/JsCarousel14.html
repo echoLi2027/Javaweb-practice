@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<script src="js/test01.js"></script>-->
+
+<img id="banner" src="img/banner_1.jpg">
+
+<script>
+
+
+    var banner = document.getElementById("banner");
+
+    var number = 1;
+
+    function fun() {
+        if (number>=3){
+            number=1;
+            banner.src = "img/banner_1.jpg";
+        }else{
+            number++;
+            banner.src = "img/banner_"+number+".jpg";
+        }
+    }
+
+    setInterval("fun();", 3000);
+
+</script>
+
+
+<!--<input type="text">-->
+
+</body>
+</html>

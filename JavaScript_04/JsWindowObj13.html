@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<input id="openBtn" type="button" value="openNewWindow">
+
+<input id="closeBtn" type="button" value="closeNewWindow">
+
+<script>
+
+    // window.alert("hello a...");
+/*
+    // 1. confirm
+    var flag = confirm("are you sure you want to exit?");
+
+    if (flag){
+        alert("bye bye");
+    }else{
+        alert("welcome back!");
+    }
+*/
+
+//     2.open&close a new window
+    var openBtn = document.getElementById("openBtn");
+
+    var newWindow;
+
+    openBtn.onclick = function () {
+        newWindow = window.open("http://www.google.com");
+        // window.open("http://www.google.com");
+    }
+
+    var closeBtn = document.getElementById("closeBtn");
+
+    closeBtn.onclick = function (){
+        newWindow.close();
+    }
+
+//  3.one time timer
+    var timeout = setTimeout("fun();", 2000); // after 2s the fun function will activate
+    clearTimeout(timeout);
+    function fun() {
+        alert("time up.");
+    }
+
+//     4.interval timer
+    var interval = setInterval("fun();", 2000); // fun method will be activated every 5s.
+    clearInterval(interval);
+
+//     5.get history
+    var h1 = window.history;
+    var h2 = history;
+
+    document.write(h1+"<br>");
+    document.write(h2+"<br>");
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

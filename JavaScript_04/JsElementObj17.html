@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a>click</a>
+<input type="button" id="btn_Set" value="set attribute">
+<input type="button" id="btn_remove" value="remove attribute">
+
+
+<script>
+
+    var btn_set = document.getElementById("btn_Set");
+    btn_set.onclick = function () {
+        var element_a = document.getElementsByTagName("a")[0];
+        element_a.setAttribute("href","https://www.google.com");
+    }
+
+    var btn_remove = document.getElementById("btn_remove");
+    btn_remove.onclick = function () {
+        var element_a = document.getElementsByTagName("a")[0];
+        element_a.removeAttribute("href");
+    }
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

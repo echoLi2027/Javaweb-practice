@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="button" id="btn" value="get the account of history site.">
+<a href="JsLocationObj15.html">previous page</a>
+<input type="button" id="forward" value="forward">
+<input type="button" id="backbtn" value="back to previous page.">
+
+<script>
+
+    var btn = document.getElementById("btn");
+
+    btn.onclick = function () {
+        var length = history.length;
+        alert(length);
+    }
+
+    var forward = document.getElementById("forward");
+    forward.onclick = function () {
+        // history.forward();
+        // forward or back to particular webpage, depends on the parameter you give.
+        history.go(1);
+
+    }
+
+    var backbtn = document.getElementById("backbtn");
+
+    backbtn.onclick =function () {
+        history.go(-1);
+    }
+
+</script>
+
+
+
+</body>
+</html>

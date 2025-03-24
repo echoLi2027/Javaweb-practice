@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="div1">
+    div
+</div>
+
+<script>
+
+    var div = document.getElementById("div1");
+    var innerHTML = div.innerHTML;
+
+    alert(innerHTML);
+    // replace div content
+    div.innerHTML = "<input type='text'>";
+
+//     append content in original div
+    div.innerHTML += "<input type='text'>";
+
+
+</script>
+
+
+</body>
+</html>
