@@ -46,7 +46,7 @@
       <th>email</th>
       <th>operation</th>
     </tr>
-    <%
+
       ArrayList<User> list = (ArrayList)request.getAttribute("users");
       System.out.println(list);
     %>

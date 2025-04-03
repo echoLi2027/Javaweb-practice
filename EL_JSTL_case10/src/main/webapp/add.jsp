@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!-- HTML5文档-->
 <!DOCTYPE html>
 <!-- 网页使用的语言 -->
@@ -20,11 +21,30 @@
     <script src="js/jquery-2.1.0.min.js"></script>
     <!-- 3. 导入bootstrap的js文件 -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+
+        window.onload = function () {
+            if (){
+                form.submit();
+            }
+        }
+
+        function checkName() {
+
+        }
+        var name = document.getElementById("name");
+        var name_reg = new RegExp("/^\w{1,32}$/");
+        var flag = name_reg.test(name);
+        if (flag){
+
+        }
+    </script>
 </head>
 <body>
 <div class="container">
-    <center><h3>添加联系人页面</h3></center>
-    <form action="" method="post">
+    <center><h3>add users</h3></center>
+    <form name="form" action="./addUserServlet" method="post">
         <div class="form-group">
             <label for="name">姓名：</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名">

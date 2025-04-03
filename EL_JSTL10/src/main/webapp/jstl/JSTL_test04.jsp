@@ -42,7 +42,7 @@
         <td>${s.count}</td>
         <td>${user.username}</td>
         <td>${user.password}</td>
-        <td>${user.birthday}</td>
+        <td>${user.birthday}</td>ui8
       </tr>
     </c:if>
     <c:if test="${s.count % 2 != 0}">
