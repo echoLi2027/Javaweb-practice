@@ -1,9 +1,6 @@
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="domain.User" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <!-- 网页使用的语言 -->
@@ -31,12 +28,84 @@
       text-align: center;
     }
   </style>
+
+  <script>
+
+    function deleteUser(id) {
+      if (confirm("are you sure to delete it?")){
+        location.href="${pageContext.request.contextPath}/delUserServlet?id="+id;
+      }
+    }
+
+    window.onload = function () {
+
+      document.getElementById("first_btn").onclick = function () {
+      //   1. get all list's cb, by id only got one element
+        var cbs = document.getElementsByName("uid");
+      //   2. do traverse
+        for (var i = 0; i < cbs.length; i++){
+          // 3. set those status the same
+          // cbs[i].checked = document.getElementById("first_btn").checked;
+          cbs[i].checked = this.checked;
+        }
+      }
+
+      document.getElementById("delSelected").onclick = function () {
+        var cbs = document.getElementsByName("uid");
+        var flag = false;
+        if (confirm("are you sure to delete user?")){
+          for (var i = 0; i < cbs.length; i++){
+            if (cbs[i].checked){
+              flag = true;
+              break;
+            }
+          }
+
+          if (flag){
+            document.getElementById("form").submit();
+          }
+        }
+
+      }
+    }
+  </script>
 </head>
 <body>
 <div class="container">
-  <h3 style="text-align: center">用户信息列表</h3>
+  <h3 style="text-align: center">user info list</h3>
+
+  <div style="float: left;">
+
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="name">name</label>
+        <input type="text" class="form-control" id="name" >
+      </div>
+      <div class="form-group">
+        <label for="address">address</label>
+        <input type="text" class="form-control" id="address" >
+      </div>
+
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="email" class="form-control" id="email"  >
+      </div>
+      <button type="submit" class="btn btn-default">search</button>
+    </form>
+
+  </div>
+
+  <div style="float: right;margin: 5px;">
+
+    <a class="btn btn-primary" href="add.jsp">add user</a>
+    <a class="btn btn-primary" href="javascript:void(0)" id="delSelected">delete user</a>
+
+  </div>
+
+  <form id="form" action="${pageContext.request.contextPath}/delSelectedUserServlet" method="post">
   <table border="1" class="table table-bordered table-hover">
     <tr class="success">
+      <th><input id="first_btn" type="checkbox"></th>
       <th>id</th>
       <th>name</th>
       <th>gender</th>
@@ -47,12 +116,9 @@
       <th>operation</th>
     </tr>
 
-      ArrayList<User> list = (ArrayList)request.getAttribute("users");
-      System.out.println(list);
-    %>
-
-    <c:forEach items="${requestScope.users}" var="user" varStatus="s">
+    <c:forEach items="${users}" var="user" varStatus="s">
       <tr>
+        <td><input id="id_box" name="uid" value="${user.id}" type="checkbox"></td>
         <td>${s.count}</td>
         <td>${user.name}</td>
         <td>${user.gender}</td>
@@ -60,15 +126,47 @@
         <td>${user.address}</td>
         <td>${user.qq}</td>
         <td>${user.email}</td>
-        <td><a class="btn btn-default btn-sm" href="update.jsp">修改</a>&nbsp;<a class="btn btn-default btn-sm" href="">删除</a></td>
+        <td><a class="btn btn-default btn-sm" href="update.jsp">update</a>&nbsp;<a class="btn btn-default btn-sm" href="javascript:deleteUser(${user.id})">delete</a></td>
       </tr>
+
     </c:forEach>
 
 
-    <tr>
-      <td colspan="8" align="center"><a class="btn btn-primary" href="add.jsp">添加联系人</a></td>
-    </tr>
   </table>
+
+  </form>
+
+  <div>
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        <span style="font-size: 25px;margin-left: 5px;">
+                    共16条记录，共4页
+                </span>
+
+      </ul>
+    </nav>
+
+
+  </div>
+
+
 </div>
+
+
 </body>
 </html>

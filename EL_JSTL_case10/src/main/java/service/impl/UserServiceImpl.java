@@ -21,4 +21,15 @@ public class UserServiceImpl implements UserService {
     public User login(String username, String password) {
         return userDao.login(username,password);
     }
+
+    @Override
+    public int addUser(User user) {
+
+        return userDao.addUser(user);
+    }
+
+    @Override
+    public int deleteUser(Integer id) {
+        return userDao.deleteUser(id);
+    }
 }

@@ -19,4 +19,18 @@ public interface UserService {
      * @return
      */
     User login(String username, String password);
+
+    /**
+     * add user from browser data
+     * @param user
+     * @return
+     */
+    int addUser(User user);
+
+    /**
+     * delete user by id
+     * @param id
+     * @return
+     */
+    int deleteUser(Integer id);
 }

@@ -11,6 +11,18 @@ public class User {
     private String username;
     private String password;
 
+    public User() {
+    }
+
+    public User(String name, String gender, int age, String address, String qq, String email) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.address = address;
+        this.qq = qq;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }

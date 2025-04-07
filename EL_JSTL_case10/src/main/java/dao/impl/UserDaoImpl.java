@@ -16,6 +16,13 @@ public class UserDaoImpl implements UserDao {
 
 
     @Override
+    public int addUser(User user) {
+        String sql = "insert into user (name,gender,age,address,qq,email) values(?,?,?,?,?,?)";
+        int updated = template.update(sql, user.getName(), user.getGender(), user.getAge(), user.getAddress(), user.getQq(), user.getEmail());
+        return updated;
+    }
+
+    @Override
     public List<User> findAll() {
         String sql = "select * from user";
         List<User> users = template.query(sql, new BeanPropertyRowMapper<>(User.class));
@@ -39,5 +46,11 @@ public class UserDaoImpl implements UserDao {
             // other exception
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public int deleteUser(Integer id) {
+        String sql = "delete from user where id=?";
+        return template.update(sql, id);
     }
 }

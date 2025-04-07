@@ -40,6 +40,8 @@
             document.getElementById("age").onblur = checkAge;
             document.getElementById("qq").onblur = checkQQ;
             document.getElementById("email").onblur = checkEmail;
+
+            document.getElementById("returnBtn").onclick = returnPre;
         }
 
 
@@ -102,6 +104,11 @@
             return flag;
         }
 
+        function returnPre() {
+            location.href = "${pageContext.request.contextPath}/userListServlet";
+        }
+
+
     </script>
 </head>
 <body>
@@ -109,48 +116,48 @@
     <center><h3>add users</h3></center>
     <form id="form" name="form" action="./addUserServlet" method="post">
         <div class="form-group">
-            <label for="name">姓名：</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名">
+            <label for="name">name：</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="please input name">
             <span id="s_name" class="error"></span>
         </div>
 
         <div class="form-group">
-            <label>性别：</label>
-            <input type="radio" name="sex" value="男" checked="checked"/>男
-            <input type="radio" name="sex" value="女"/>女
+            <label>gender：</label>
+            <input type="radio" name="gender" value="male" checked="checked"/>male
+            <input type="radio" name="gender" value="female"/>female
         </div>
 
         <div class="form-group">
-            <label for="age">年龄：</label>
-            <input type="text" class="form-control" id="age" name="age" placeholder="请输入年龄">
+            <label for="age">age：</label>
+            <input type="text" class="form-control" id="age" name="age" placeholder="please input your age">
             <span id="s_age" class="error"></span>
         </div>
 
         <div class="form-group">
-            <label for="address">籍贯：</label>
+            <label for="address">address：</label>
             <select name="address" class="form-control" id="address">
-                <option value="广东">广东</option>
-                <option value="广西">广西</option>
-                <option value="湖南">湖南</option>
+                <option value="London">London</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Seattle">Seattle</option>
             </select>
         </div>
 
         <div class="form-group">
             <label for="qq">QQ：</label>
-            <input type="text" id="qq" class="form-control" name="qq" placeholder="请输入QQ号码"/>
+            <input type="text" id="qq" class="form-control" name="qq" placeholder="please input qq"/>
             <span id="s_qq" class="error"></span>
         </div>
 
         <div class="form-group">
             <label for="email">Email：</label>
-            <input type="text" id="email" class="form-control" name="email" placeholder="请输入邮箱地址"/>
+            <input type="text" id="email" class="form-control" name="email" placeholder="please input email"/>
             <span id="s_email" class="error"></span>
         </div>
 
         <div class="form-group" style="text-align: center">
-            <input class="btn btn-primary" type="submit" value="提交" />
-            <input class="btn btn-default" type="reset" value="重置" />
-            <input class="btn btn-default" type="button" value="返回" />
+            <input class="btn btn-primary" type="submit" value="submit" />
+            <input class="btn btn-default" type="reset" value="reset" />
+            <input class="btn btn-default" id="returnBtn" type="button" onclick="returnPre()" value="return" />
         </div>
     </form>
 </div>
