@@ -126,7 +126,7 @@
         <td>${user.address}</td>
         <td>${user.qq}</td>
         <td>${user.email}</td>
-        <td><a class="btn btn-default btn-sm" href="update.jsp">update</a>&nbsp;<a class="btn btn-default btn-sm" href="javascript:deleteUser(${user.id})">delete</a></td>
+        <td><a class="btn btn-default btn-sm" href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">update</a>&nbsp;<a class="btn btn-default btn-sm" href="javascript:deleteUser(${user.id})">delete</a></td>
       </tr>
 
     </c:forEach>

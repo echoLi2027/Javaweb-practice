@@ -33,4 +33,17 @@ public interface UserService {
      * @return
      */
     int deleteUser(Integer id);
+
+    /**
+     * find user by id
+     * @param i
+     * @return
+     */
+    User findUserById(int i);
+
+    /**
+     * update user
+     * @param user
+     */
+    void updateUser(User user);
 }

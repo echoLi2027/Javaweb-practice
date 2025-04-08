@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/delUserServlet")
-public class DelUserServlet extends HttpServlet {
+@WebServlet("/findUserServlet")
+public class FindUserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,15 +22,17 @@ public class DelUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Integer id = Integer.parseInt(req.getParameter("id"));
-        UserService service = new UserServiceImpl();
-        int i = service.deleteUser(id);
+        String id = req.getParameter("id");
 
-        if (i > 0) {
-            resp.sendRedirect(req.getContextPath() + "/userListServlet");
-        }else{
-            resp.sendRedirect("./login.jsp");
-        }
+        UserService service = new UserServiceImpl();
+
+        User user = service.findUserById(Integer.parseInt(id));
+
+        System.out.println("find user by id:"+user);
+
+        req.getSession().setAttribute("user", user);
+
+        resp.sendRedirect(req.getContextPath()+"/update.jsp");
 
     }
 }

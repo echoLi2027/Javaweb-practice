@@ -13,4 +13,8 @@ public interface UserDao {
     User login(String username, String password);
 
     int deleteUser(Integer id);
+
+    User findById(int id);
+
+    void updateUser(User user);
 }

@@ -20,14 +20,19 @@ public class DelSelectedUserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer id = Integer.parseInt(req.getParameter("id"));
-        UserService service = new UserServiceImpl();
-        int i = service.deleteUser(id);
+        String[] uids = req.getParameterValues("uid");
 
-        if (i > 0) {
+        System.out.println(uids);
+
+        if (uids != null || uids.length >= 0) {
+            UserService service = new UserServiceImpl();
+
+            for (String uid : uids) {
+                service.deleteUser(Integer.parseInt(uid));
+            }
+
             resp.sendRedirect(req.getContextPath() + "/userListServlet");
-        }else{
-            resp.sendRedirect("./login.jsp");
+
         }
     }
 }
