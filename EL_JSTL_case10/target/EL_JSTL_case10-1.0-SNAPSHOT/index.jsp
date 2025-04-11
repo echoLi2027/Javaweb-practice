@@ -22,7 +22,7 @@ ${requestScope.user.username}, welcome...
 
 <div align="center">
   <a
-          href="./userListServlet" style="text-decoration:none;font-size:33px">查询所有用户信息
+          href="${pageContext.request.contextPath}/findUserByPageServlet" style="text-decoration:none;font-size:33px">查询所有用户信息
   </a>
 </div>
 </body>

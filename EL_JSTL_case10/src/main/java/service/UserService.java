@@ -1,8 +1,10 @@
 package service;
 
+import domain.PageBean;
 import domain.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
 
@@ -46,4 +48,7 @@ public interface UserService {
      * @param user
      */
     void updateUser(User user);
+
+
+    PageBean<User> findUserByPage(int currentPage, int rows, Map<String, String[]> condition);
 }

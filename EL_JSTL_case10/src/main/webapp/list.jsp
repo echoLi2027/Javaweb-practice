@@ -79,16 +79,16 @@
     <form class="form-inline">
       <div class="form-group">
         <label for="name">name</label>
-        <input type="text" class="form-control" id="name" >
+        <input type="text" name="name" class="form-control" id="name" >
       </div>
       <div class="form-group">
         <label for="address">address</label>
-        <input type="text" class="form-control" id="address" >
+        <input type="text" name="address" class="form-control" id="address" >
       </div>
 
       <div class="form-group">
         <label for="email">email</label>
-        <input type="email" class="form-control" id="email"  >
+        <input type="text" name="email" class="form-control" id="email"  >
       </div>
       <button type="submit" class="btn btn-default">search</button>
     </form>
@@ -116,10 +116,10 @@
       <th>operation</th>
     </tr>
 
-    <c:forEach items="${users}" var="user" varStatus="s">
+    <c:forEach items="${pageBean.list}" var="user" varStatus="s">
       <tr>
         <td><input id="id_box" name="uid" value="${user.id}" type="checkbox"></td>
-        <td>${s.count}</td>
+        <td>${user.id}</td>
         <td>${user.name}</td>
         <td>${user.gender}</td>
         <td>${user.age}</td>
@@ -139,23 +139,42 @@
   <div>
     <nav aria-label="Page navigation">
       <ul class="pagination">
-        <li>
-          <a href="#" aria-label="Previous">
+        <c:if test="${pageBean.currentPage==1}">
+          <li class="disabled">
+        </c:if>
+
+        <c:if test="${pageBean.currentPage!=1}">
+          <li>
+        </c:if>
+
+          <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pageBean.currentPage - 1}&rows = 5" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-          <a href="#" aria-label="Next">
+
+        <c:forEach begin="1" end="${pageBean.totalPage}" var="i">
+
+          <c:if test="${pageBean.currentPage == i}">
+            <li class="active"><a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${i}&rows=5">${i}</a></li>
+          </c:if>
+          <c:if test="${pageBean.currentPage != i}">
+            <li><a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${i}&rows=5">${i}</a></li>
+          </c:if>
+
+        </c:forEach>
+
+          <c:if test="${pageBean.currentPage==pageBean.totalPage}">
+            <li class="disabled">
+          </c:if>
+          <c:if test="${pageBean.currentPage!=pageBean.totalPage}">
+            <li>
+          </c:if>
+          <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pageBean.currentPage + 1}&rows = 5" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
         <span style="font-size: 25px;margin-left: 5px;">
-                    共16条记录，共4页
+                    total &nbsp ${pageBean.totalCount} &nbsp records, &nbsp total &nbsp ${pageBean.totalPage} &nbsp pages.
                 </span>
 
       </ul>
