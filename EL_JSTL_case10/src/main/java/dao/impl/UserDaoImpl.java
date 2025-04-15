@@ -79,6 +79,8 @@ public class UserDaoImpl implements UserDao {
 
         for (String key : keys) {
 
+            System.out.println("key:"+key);
+
             if ("currentPage".equals(key) || "rows".equals(key)) {
                 continue;
             }

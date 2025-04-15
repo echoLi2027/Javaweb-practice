@@ -46,7 +46,7 @@ public class AddUserServlet extends HttpServlet {
         int i = service.addUser(user);
 
         if (i > 0) {
-            resp.sendRedirect("./userListServlet");
+            resp.sendRedirect("./findUserByPageServlet");
         }else{
             resp.sendRedirect("./add.jsp");
         }

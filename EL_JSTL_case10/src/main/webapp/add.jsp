@@ -105,7 +105,7 @@
         }
 
         function returnPre() {
-            location.href = "${pageContext.request.contextPath}/userListServlet";
+            location.href = "${pageContext.request.contextPath}/findUserByPageServlet";
         }
 
 

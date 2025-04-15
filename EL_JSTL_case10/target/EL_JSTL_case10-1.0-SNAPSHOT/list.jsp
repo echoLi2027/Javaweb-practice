@@ -147,7 +147,7 @@
           <li>
         </c:if>
 
-          <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pageBean.currentPage - 1}&rows = 5" aria-label="Previous">
+          <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pageBean.currentPage - 1}&rows=5" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
@@ -169,7 +169,7 @@
           <c:if test="${pageBean.currentPage!=pageBean.totalPage}">
             <li>
           </c:if>
-          <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pageBean.currentPage + 1}&rows = 5" aria-label="Next">
+          <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pageBean.currentPage + 1}&rows=5" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
