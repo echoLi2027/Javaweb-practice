@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS event</title>
+</head>
+<body>
+  
+  <input type="button" id="btn1" value="click me 1">
+  <input type="button" id="btn2" value="click me 2">
+
+  <script>
+
+    document.querySelector("#btn1").addEventListener("click", ()=>{
+      console.log("ok, I clicked(new way).");
+    });
+
+    document.querySelector("#btn1").addEventListener("click", ()=>{
+      console.log("ok, this is added method(new way).");
+    });
+
+
+    document.querySelector("#btn2").onclick = ()=>{
+      console.log("ok, I clicked(old way).");
+    };
+
+    document.querySelector("#btn2").onclick = ()=>{
+      console.log("ok, overwrite the previous method(old way).");
+    };
+
+
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax-Axios</title>
+</head>
+<body>
+    
+    <input type="button" value="get data by GET" id="btnGet">
+    <input type="button" value="get data by POST" id="btnPost">
+
+    <script src="js/axios.js"></script>
+    <script>
+        //send GET request
+        document.querySelector('#btnGet').addEventListener('click', () => {
+           axios({
+               url:'https://mock.apifox.cn/m1/3083103-0-default/emps/list',
+               method: 'get'
+           }).then(function (res) {
+               console.log(res);
+               console.log(res.data);
+           }).catch(function (err) {
+               console.log(err);
+           })
+        })
+        
+        //send POST request
+        document.querySelector('#btnPost').addEventListener('click', () => {
+            axios({
+                url:'https://mock.apifox.cn/m1/3083103-0-default/emps/update',
+                method: 'post'
+            }).then(function (res) {
+                console.log(res);
+                console.log(res.data);
+            }).catch(function (err) {
+                console.log(err);
+            })
+        })
+    </script>
+</body>
+</html>

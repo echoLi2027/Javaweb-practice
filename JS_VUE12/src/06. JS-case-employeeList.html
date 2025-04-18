@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tlias Intelligent Learning Assistant System</title>
+    <style>
+        /* Navigation bar styles */
+        .navbar {
+            background-color: #b5b3b3; /* Gray background */
+
+            display: flex; /* flex layout */
+            justify-content: space-between; /* left-right alignment */
+
+            padding: 10px; /* inner padding */
+            align-items: center; /* vertical center */
+        }
+        .navbar h1 {
+            margin: 0; /* remove default margin */
+            font-weight: bold; /* bold text */
+            color: white;
+            /* Set font to Kaiti */
+            font-family: "Kaiti", serif;
+        }
+        .navbar a {
+            color: white; /* link color white */
+            text-decoration: none; /* remove underline */
+        }
+
+        /* Search form styles */
+        .search-form {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 10px; /* spacing between controls */
+            margin: 20px 0;
+        }
+        .search-form input[type="text"], .search-form select {
+            padding: 5px; /* input padding */
+            width: 260px; /* width */
+        }
+        .search-form button {
+            padding: 5px 15px; /* button padding */
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd; /* border */
+            padding: 8px; /* cell padding */
+            text-align: center; /* center alignment */
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .avatar {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #b5b3b3; /* Gray background */
+            color: white; /* White text */
+            text-align: center; /* center text */
+            padding: 10px 0; /* top-bottom padding */
+            margin-top: 30px;
+        }
+
+        #container {
+            width: 80%; /* width 80% */
+            margin: 0 auto; /* horizontal center */
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <!-- Top navigation bar -->
+    <div class="navbar">
+        <h1>Tlias Intelligent Learning Assistant System</h1>
+        <a href="#">Logout</a>
+    </div>
+
+    <!-- Search form area -->
+    <form class="search-form" action="/search" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Please enter name">
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value=""></option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+        </select>
+
+        <label for="position">Position:</label>
+        <select id="position" name="position">
+            <option value=""></option>
+            <option value="1">Homeroom Teacher</option>
+            <option value="2">Lecturer</option>
+            <option value="3">Student Affairs Manager</option>
+            <option value="4">Teaching Research Manager</option>
+            <option value="5">Counselor</option>
+        </select>
+
+        <button type="submit">Search</button>
+        <button type="reset">Clear</button>
+    </form>
+
+    <!-- Table display area -->
+    <table>
+        <!-- Table header -->
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Avatar</th>
+            <th>Position</th>
+            <th>Hire Date</th>
+            <th>Last Operation Time</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <!-- Table body content -->
+        <tbody>
+        <tr>
+            <td>Linghu Chong</td>
+            <td>Male</td>
+            <td><img class="avatar" src="https://web-framework.oss-cn-hangzhou.aliyuncs.com/2023/1.jpg" alt="Linghu Chong"></td>
+            <td>Lecturer</td>
+            <td>2021-06-15</td>
+            <td>2024-09-16 15:30</td>
+            <td class="action-buttons">
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Ren Yingying</td>
+            <td>Female</td>
+            <td><img class="avatar" src="https://web-framework.oss-cn-hangzhou.aliyuncs.com/2023/1.jpg" alt="Ren Yingying"></td>
+            <td>Counselor</td>
+            <td>2021-07-20</td>
+            <td>2024-09-17 09:00</td>
+            <td class="action-buttons">
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Xiang Wentian</td>
+            <td>Male</td>
+            <td><img class="avatar" src="https://web-framework.oss-cn-hangzhou.aliyuncs.com/2023/1.jpg" alt="Xiang Wentian"></td>
+            <td>Homeroom Teacher</td>
+            <td>2021-05-01</td>
+            <td>2024-09-15 17:45</td>
+            <td class="action-buttons">
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Ren Woxing</td>
+            <td>Male</td>
+            <td><img class="avatar" src="https://web-framework.oss-cn-hangzhou.aliyuncs.com/2023/1.jpg" alt="Xiang Wentian"></td>
+            <td>Teaching Research Manager</td>
+            <td>2021-05-01</td>
+            <td>2024-09-15 17:45</td>
+            <td class="action-buttons">
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Tian Boguang</td>
+            <td>Male</td>
+            <td><img class="avatar" src="https://web-framework.oss-cn-hangzhou.aliyuncs.com/2023/1.jpg" alt="Linghu Chong"></td>
+            <td>Homeroom Teacher</td>
+            <td>2021-06-15</td>
+            <td>2024-09-16 15:30</td>
+            <td class="action-buttons">
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Bujie</td>
+            <td>Female</td>
+            <td><img class="avatar" src="https://web-framework.oss-cn-hangzhou.aliyuncs.com/2023/1.jpg" alt="Ren Yingying"></td>
+            <td>Homeroom Teacher</td>
+            <td>2021-07-20</td>
+            <td>2024-09-17 09:00</td>
+            <td class="action-buttons">
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Zuo Lengchan</td>
+            <td>Male</td>
+            <td><img class="avatar" src="https://web-framework.oss-cn-hangzhou.aliyuncs.com/2023/1.jpg" alt="Xiang Wentian"></td>
+            <td>Homeroom Teacher</td>
+            <td>2021-05-01</td>
+            <td>2024-09-15 17:45</td>
+            <td class="action-buttons">
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Dingyi</td>
+            <td>Female</td>
+            <td><img class="avatar" src="https://web-framework.oss-cn-hangzhou.aliyuncs.com/2023/1.jpg" alt="Xiang Wentian"></td>
+            <td>Homeroom Teacher</td>
+            <td>2021-05-01</td>
+            <td>2024-09-15 17:45</td>
+            <td class="action-buttons">
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Dongfang Brothers</td>
+            <td>Male</td>
+            <td><img class="avatar" src="https://web-framework.oss-cn-hangzhou.aliyuncs.com/2023/1.jpg" alt="Xiang Wentian"></td>
+            <td>Lecturer</td>
+            <td>2021-05-01</td>
+            <td>2024-09-15 17:45</td>
+            <td class="action-buttons">
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Jin Yong</td>
+            <td>Male</td>
+            <td><img class="avatar" src="https://web-framework.oss-cn-hangzhou.aliyuncs.com/2023/1.jpg" alt="Xiang Wentian"></td>
+            <td>Counselor</td>
+            <td>2021-05-01</td>
+            <td>2024-09-15 17:45</td>
+            <td class="action-buttons">
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Footer copyright area -->
+    <footer class="footer">
+        <p>Jiangsu Itcast Education Technology Co., Ltd.</p>
+        <p>All Rights Reserved Copyright 2006-2024</p>
+    </footer>
+</div>
+
+<script>
+    //Implement alternating row colors for the above table, set odd rows background color to #f2e2e2, even rows background color to #e6f7ff (using modern JS syntax)
+    let trs = document.querySelectorAll("tbody tr");
+    for (let i = 0; i < trs.length; i++) {
+        if (i % 2 === 0){
+            trs[i].style.backgroundColor = "#f2e2e2";
+        }else {
+            trs[i].style.backgroundColor = "#e6f7ff";
+        }
+    }
+
+</script>
+
+</body>
+</html>

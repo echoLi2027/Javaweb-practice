@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS-customized obj</title>
+</head>
+<body>
+  
+
+  <script>
+
+    let user = {
+      name : "Sheldon",
+      age : 35,
+      gender: "male",
+      playing: function () {
+        alert(this.name + " likes playing dungeon and dragon.");
+      }
+      /*playing: ()=>{
+        // here not using "this.name", cuz this in here points to the parent obj of current obj, here is document obj not user;
+        alert(this + " likes playing dungeon and dragon.");
+      }*/
+    }
+
+    alert(user.name);
+    user.playing();
+
+
+  //   JSON -- js obj
+    let person = {
+      name : "Leonard",
+      age : 35,
+      gender : "male"
+    }
+    // now a js obj --> json string
+    alert(JSON.stringify(person));
+
+    let personJson = '{"name": "Penny", "age" : 33}';
+    // JSON.parse(personJson) turns a json string into a js obj.
+    alert(JSON.parse(personJson).name);
+
+
+
+  </script>
+</body>
+</html>

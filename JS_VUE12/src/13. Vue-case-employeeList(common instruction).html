@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tlias Intelligent Learning Assistance System</title>
+    <style>
+        /* Navigation bar styles */
+        .navbar {
+            background-color: #b5b3b3; /* Gray background */
+
+            display: flex; /* flex layout */
+            justify-content: space-between; /* align to left and right */
+
+            padding: 10px; /* inner padding */
+            align-items: center; /* vertical centering */
+        }
+        .navbar h1 {
+            margin: 0; /* remove default top and bottom margin */
+            font-weight: bold; /* bold text */
+            color: white;
+            /* Set font to Kaiti */
+            font-family: "Kaiti", serif;
+        }
+        .navbar a {
+            color: white; /* link color is white */
+            text-decoration: none; /* remove underline */
+        }
+
+        /* Search form styles */
+        .search-form {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 10px; /* spacing between controls */
+            margin: 20px 0;
+        }
+        .search-form input[type="text"], .search-form select {
+            padding: 5px; /* input field padding */
+            width: 260px; /* width */
+        }
+        .search-form button {
+            padding: 5px 15px; /* button padding */
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd; /* border */
+            padding: 8px; /* cell padding */
+            text-align: center; /* center aligned text */
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .avatar {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #b5b3b3; /* Gray background */
+            color: white; /* White text */
+            text-align: center; /* centered text */
+            padding: 10px 0; /* top and bottom padding */
+            margin-top: 30px;
+        }
+
+        #container {
+            width: 80%; /* width 80% */
+            margin: 0 auto; /* horizontally centered */
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <!-- Top navigation bar -->
+    <div class="navbar">
+        <h1>Tlias Intelligent Learning Assistance System</h1>
+        <a href="#">Logout</a>
+    </div>
+
+    <!-- Search form area -->
+    <form class="search-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Please enter name" v-model="searchEmp.name">
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" v-model="searchEmp.gender">
+            <option value=""></option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+        </select>
+
+        <label for="position">Position:</label>
+        <select id="position" name="position" v-model="searchEmp.job">
+            <option value=""></option>
+            <option value="1">Class Teacher</option>
+            <option value="2">Lecturer</option>
+            <option value="3">Student Affairs Supervisor</option>
+            <option value="4">Academic Research Supervisor</option>
+            <option value="5">Counselor</option>
+        </select>
+
+        <button type="button" @click="search">Search</button>
+        <button type="reset" @click="clear">Clear</button>
+    </form>
+
+    <!-- Table display area -->
+    <table>
+        <!-- Table header -->
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Avatar</th>
+            <th>Position</th>
+            <th>Entry Date</th>
+            <th>Last Operation Time</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <!-- Table body content -->
+        <tbody>
+        <tr v-for="(emp, index) in empList" :key="emp.id">
+            <td>{{emp.name}}</td>
+            <td>
+                <!-- if accordingly show is not the answer just hide the tag, but still hold this tag in html-->
+                <span v-show="emp.gender==1">male</span>
+                <span v-show="emp.gender==2">female</span>
+            </td>
+            <td><img class="avatar" :src="emp.image" :alt="emp.name"></td>
+            <td>
+                <!-- if the requirement is not met, then don't create 'span'-->
+                <span v-if="emp.job==1">Class Teacher</span>
+                <span v-else-if="emp.job==2">Lecturer</span>
+                <span v-else-if="emp.job==3">Student Affairs Supervisor</span>
+                <span v-else-if="emp.job==4">Academic Research Supervisor</span>
+                <span v-else-if="emp.job==5">Counselor</span>
+                <span v-else>others</span>
+
+
+            </td>
+            <td>{{emp.entrydate}}</td>
+            <td>{{emp.updatetime}}</td>
+            <td class="action-buttons">
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Footer copyright area -->
+    <footer class="footer">
+        <p>Jiangsu Itcast Educational Technology Co., Ltd.</p>
+        <p>All Rights Reserved. Copyright 2006-2024</p>
+    </footer>
+</div>
+
+<script src="js/axios.js"></script>
+
+<script type="module">
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+    createApp({
+        methods: {
+            /*search(){
+                axios.get(`https://web-server.itheima.net/emps/list?name=${this.searchEmp.name}&gender=${this.searchEmp.gender}&job=${this.searchEmp.job}`).then( result => {
+                    this.empList = result.data.data;
+                })
+            },*/
+
+            async search(){
+                const result = await axios.get(`https://web-server.itheima.net/emps/list?name=${this.searchEmp.name}&gender=${this.searchEmp.gender}&job=${this.searchEmp.job}`);
+                this.empList = result.data.data;
+            },
+
+            clear(){
+                this.searchEmp = {
+                    name : '',
+                    gender : '',
+                    job : ''
+                };
+                this.search();
+            }
+        },
+        mounted(){
+            this.search();
+        },
+        data() {
+            return {
+                searchEmp:{
+                    name : '',
+                    gender : '',
+                    job : ''
+                },
+                empList: []
+            }
+        }
+    }).mount('#container')
+</script>
+
+</body>
+</html>
