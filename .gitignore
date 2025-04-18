@@ -51,3 +51,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+JS_VUE12/src/js/axios.js
+JS_VUE12/src/js/vue.esm-browser.js
