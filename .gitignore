@@ -7,7 +7,6 @@
 # IDE配置
 /.idea/
 /.vscode/
-*.iml
 
 # 依赖库
 /libs/
@@ -28,6 +27,23 @@ out/
 !**/src/test/**/out/
 
 ### Eclipse ###
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### Mac OS ###
+.DS_Store
+
+JS_VUE12/src/js/axios.js
+JS_VUE12/src/js/vue.esm-browser.js
+
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
 .apt_generated
 .classpath
 .factorypath
@@ -35,9 +51,12 @@ out/
 .settings
 .springBeans
 .sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
 ### NetBeans ###
 /nbproject/private/
@@ -45,12 +64,9 @@ bin/
 /dist/
 /nbdist/
 /.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
-
-### Mac OS ###
-.DS_Store
-
-JS_VUE12/src/js/axios.js
-JS_VUE12/src/js/vue.esm-browser.js
