@@ -1,0 +1,22 @@
+#this is more read-friendly than .properties file
+# well-structured
+
+
+
+# db config
+spring:
+  application:
+    name: SpringBoot_MyBatis15
+
+  datasource:
+#    type: org.springframework.jdbc.datasource.DelegatingDataSource
+    url: jdbc:mysql://localhost:3306/springbootDB
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+
+# mybatis config
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
